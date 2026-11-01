@@ -1,17 +1,20 @@
 # Volunteers
 
-Draft roster from emails. Rayyan to confirm names, roles, form row, and
-whether each person did project work (not just signed or got cc'd).
+Confirmed by Rayyan on 2026-11-01.
 
-| Person | Role seen in records | Form row (proposed) | Hours | Status |
-|---|---|---|---|---|
-| Rayyan Hashmi | Candidate, project lead | Candidate rows | See HOURS-SUMMARY | Draft |
-| Omair Hashmi | Signed the proposal; ran DTD calls; sent designer pages | Registered BSA adult *or* other adult (depends on whether he is a registered leader) | ? | Confirm |
-| Yasir Salim (NourishED) | Signed proposal (beneficiary); DTD meeting invites; reviewer for pages | Other adult | ? | Confirm |
-| Haseeb Khan (NourishED) | DTD meeting invites | Other adult | ? | Confirm |
-| "Data analytics volunteer" | Mentioned in the June proposal email | ? | ? | Name? |
-| Scout volunteers | Mentioned in the proposal | Registered BSA youth | ? | Names? |
-| Designer | Made "designer versions" of pages (Sep 29) | ? | ? | Who? |
+| Person | Role | Form row | Registered BSA? |
+|---|---|---|---|
+| Rayyan Hashmi | Candidate, project lead | Candidate planning + execution | (candidate) |
+| Omair Hashmi | Adult helper: DTD calls, designer page versions, reviews | Other adults | No |
+| Yasir Salim | NourishED: beneficiary sign-off, reviews, DTD calls | Other adults | No |
+| Haseeb Khan | NourishED: DTD calls, reviews | Other adults | No |
+
+No BSA youth, other youth, or registered adults worked on the project.
+
+Form "Number of Workers" column (confirmed): candidate 1 + 1, BSA youth 0,
+other youth 0, registered adults 0, other adults 3, total 4.
+
+Hours per person are in HOURS-SUMMARY.md and the Google Sheet.
 
 Not counted: Double the Donation staff (Patricia Cortez, Larissa Marquez),
 district advancement (Kimberly Pantoja).

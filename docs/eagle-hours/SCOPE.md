@@ -6,6 +6,13 @@ ALLOWED_GROUP_JID: `PENDING`
 provide it. `scripts/group_activity.py` reads this line and refuses any other
 chat.)
 
+## Preferred source: a chat export
+
+Rayyan exports only the scoped group (SETUP.md). An export contains exactly
+one chat, so nothing outside the group is ever read. `scripts/export_activity.py`
+reads the export. The rules below still apply, and the bridge rules apply
+only if the bridge fallback is used.
+
 ## Rules
 
 1. Only the one group above is read. No other group, no direct chats, no

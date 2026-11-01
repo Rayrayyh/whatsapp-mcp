@@ -23,17 +23,18 @@ read-only data source, limited to one group (see [SCOPE.md](SCOPE.md)).
 | [QUESTIONS.md](QUESTIONS.md) | Open questions for Rayyan (answers get recorded there) |
 | [HOURS-SUMMARY.md](HOURS-SUMMARY.md) | The filled-in form table, with confidence notes |
 | `scripts/git_sessions.py` | Turns commit history into estimated work sessions |
-| `scripts/group_activity.py` | Summarizes the one scoped WhatsApp group (refuses any other chat) |
+| `scripts/export_activity.py` | Summarizes a WhatsApp chat export of the one group (preferred source) |
+| `scripts/group_activity.py` | Summarizes the one scoped group from the bridge database (fallback; refuses any other chat) |
 
 ## Status
 
 | Step | State |
 |---|---|
-| Email evidence (Gmail) | First pass done |
+| Email and Drive evidence | Full sweep running (multi-agent, each meeting re-checked) |
 | Git evidence (3 repos) | Done: about 60 h of commit-backed sessions |
-| WhatsApp group | Blocked: cloud session can't reach WhatsApp yet, group JID not given yet |
-| Volunteer roster | Needs Rayyan's input |
-| Meetings without records | Needs Rayyan's estimates |
+| WhatsApp group | Waiting on the group's chat export |
+| Volunteer roster | Confirmed: Rayyan + 3 other adults |
+| Meetings list | Compiling with citations; Rayyan confirms each |
 | Final table | Draft only |
 
 ## Workflow

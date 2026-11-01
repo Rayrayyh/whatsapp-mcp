@@ -1,3 +1,8 @@
 *.db
 claude_desktop_config.json
 whatsapp.log__pycache__/
+
+# WhatsApp chat exports hold private messages: never commit them
+WhatsApp Chat*
+*.whatsapp-export.*
+docs/eagle-hours/private/

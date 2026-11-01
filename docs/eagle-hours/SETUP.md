@@ -6,16 +6,37 @@ WhatsApp, the same way WhatsApp Web does, and stores messages in
 (`whatsapp-mcp-server/`) reads that database. For hour estimates we only need
 the database, read through `scripts/group_activity.py`.
 
-## Where to run it
+## Recommended: export the one group instead
 
-### Option A: this cloud session (current plan)
+Chosen on 2026-11-01. Better than linking the bridge because:
 
-Status on 2026-11-01: the session's network policy blocks `web.whatsapp.com`
-and `*.whatsapp.net`, so the bridge can't connect.
+- **Complete history.** An export holds everything on the phone. A newly
+  linked device only receives recent history, so July and August could be
+  missing.
+- **Tighter scope.** Only the one group leaves the phone. The bridge would
+  sync every chat into `messages.db`.
 
-To unblock it, in the Claude app open this session's cloud environment menu
-(title bar), choose Edit, and under Network access add these Allowed domains
-(keep "Allow package managers" ticked):
+Steps:
+
+1. Open the group in WhatsApp, tap the group name, then **Export chat**.
+2. Choose **Without media**.
+3. Save it to **Google Drive** (Claude reads it with the Drive connector), or
+   attach the `.txt` / `.zip` in the chat with Claude.
+4. Claude runs `scripts/export_activity.py <file> --dump --csv out.csv`.
+
+The export file holds the group's full message history. Keep it out of git
+(it is never committed here) and delete it from Drive when the hours are
+final.
+
+## Fallback: run the bridge
+
+### Option A: this cloud session
+
+Status on 2026-11-01: the WhatsApp domains are now allowed and
+`web.whatsapp.com` is reachable, so the bridge can connect if needed.
+
+The domains that were added in the cloud environment settings (title bar,
+Edit, Network access, Allowed domains):
 
 - `web.whatsapp.com`
 - `*.whatsapp.net`
