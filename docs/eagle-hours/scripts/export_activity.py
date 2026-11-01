@@ -31,6 +31,7 @@ INVISIBLE = dict.fromkeys(map(ord, "‎‏ ﻿"), None)
 IOS = re.compile(r"^\[(\d{1,2})/(\d{1,2})/(\d{2,4}),? (\d{1,2}):(\d{2})(?::(\d{2}))?\s*([AaPp][Mm])?\] ([^:]+?): (.*)$")
 ANDROID = re.compile(r"^(\d{1,2})/(\d{1,2})/(\d{2,4}),? (\d{1,2}):(\d{2})(?::(\d{2}))?\s*([AaPp][Mm])? - ([^:]+?): (.*)$")
 SYSTEM_ANDROID = re.compile(r"^(\d{1,2})/(\d{1,2})/(\d{2,4}),? \d{1,2}:\d{2}.* - [^:]+$")
+SYSTEM_IOS = re.compile(r"^\[\d{1,2}/\d{1,2}/\d{2,4},? [^\]]+\] - ")
 
 
 def to_dt(a, b, y, hh, mm, ss, ampm, dayfirst):
@@ -47,6 +48,8 @@ def parse(path, dayfirst):
     with open(path, encoding="utf-8", errors="replace") as f:
         for n, raw in enumerate(f, 1):
             line = raw.rstrip("\n").translate(INVISIBLE).replace(" ", " ")
+            if SYSTEM_IOS.match(line):
+                continue  # "[date] - X created the group", encryption notice
             m = IOS.match(line) or ANDROID.match(line)
             if m:
                 g = m.groups()
@@ -54,7 +57,7 @@ def parse(path, dayfirst):
                              "sender": g[7].strip(), "text": g[8]})
             elif SYSTEM_ANDROID.match(line):
                 continue  # "X added Y", "Messages are end-to-end encrypted"
-            elif msgs:
+            elif msgs and not line.startswith("Messages and calls are end-to-end"):
                 msgs[-1]["text"] += "\n" + line
     return msgs
 
